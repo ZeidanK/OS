@@ -12,19 +12,27 @@ int main(int argc, char *argv[]) {
   // // it can be ("multiproc","child","single")
   if (strcmp(argv[1], "multiproc") == 0) {
     // fork a child process
-    pid_t pid = fork();
-    if (pid < 0) {
-      fprintf(stderr, "Fork failed.\n");
-      return 1;
-    } else if (pid == 0) {
-      // Child process
-      greet_one(argv[2]);
-      exit(0);
-    } else {
-      // Parent process
-      wait(NULL); // Wait for the child process to finish
-      greet_one(argv[2]);
+    for (int i = 2; i < argc; i++) {
+      pid_t pid = fork();
+      if (pid < 0) {
+        fprintf(stderr, "Fork failed.\n");
+        return 1;
+      } else if (pid == 0) {
+        // Child process
+        char *args[] = {"hello_who", argv[i], NULL};
+        if (execv("hello_who", args) != 0) {
+          perror("execvp() failed");
+          exit(EXIT_FAILURE);
+        }
+
+        greet_one(argv[i]);
+        exit(0);
+      } else {
+        // Parent process
+        wait(NULL); // Wait for the child process to finish
+      }
     }
+
   } else if (strcmp(argv[1], "child") == 0) {
     printf("child\n");
     for (int i = 2; i < argc; i++) {
