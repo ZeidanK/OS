@@ -24,8 +24,6 @@ int main(int argc, char *argv[]) {
           perror("execvp() failed");
           exit(EXIT_FAILURE);
         }
-
-        greet_one(argv[i]);
         exit(0);
       } else {
         // Parent process
