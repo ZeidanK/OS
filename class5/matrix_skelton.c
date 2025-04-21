@@ -85,7 +85,7 @@ void *do_thread(void *ptr) {
   pthread_exit(NULL);
 }
 
-//----------------------------------------
+//----------------     ------------------------
 void random_sleep() {
   int d = (rand() ^ pthread_self() ^ getpid()) % 40 + 40;
   const struct timespec ts = {0, d * 1000 * 1000 * 10};
