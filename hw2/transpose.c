@@ -58,7 +58,7 @@ int main() {
     printf("Thread %d finished\n", i);
   }
   // TODO
-  //  Wait for all threads to complete
+  //  Wait for all ahreads to complete
 
   // Print the transposed matrix
   printf("Transposed Matrix:\n");
