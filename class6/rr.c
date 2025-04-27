@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
-
+//dont forget to redo this
 // Structure to represent a process
 struct Process {
   int pid;             // Process ID
