@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
-//dont forget to redo this
-// Structure to represent a process
+// dont forget to redo this
+//  Structure to represent a process
 struct Process {
   int pid;             // Process ID
   int burst_time;      // Burst time (amount of CPU time needed)
