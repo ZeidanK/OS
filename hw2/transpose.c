@@ -52,10 +52,10 @@ int main() {
   }
   for (int i = 0; i < RAWS; i++) {
     pthread_join(threads[i], NULL);
-    printf("waiting for thread %d\n", i);
+    // printf("waiting for thread %d\n", i);
   }
   for (int i = 0; i < RAWS; i++) {
-    printf("Thread %d finished\n", i);
+    // printf("Thread %d finished\n", i);
   }
   // TODO
   //  Wait for all ahreads to complete
