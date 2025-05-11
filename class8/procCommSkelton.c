@@ -56,6 +56,7 @@ int main() {
       // Read a message from the parent_pipe
       ssize_t read_result = read(parent_pipe[0], child_buff, BUFFSIZE);
       // Reverse the string
+      printf("the ssize_t is %ld\n", read_result);
       reverse(child_buff);
       // Write the message to the child_pipe
       write(child_pipe[1], child_buff, read_result);
